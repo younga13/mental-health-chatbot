@@ -49,3 +49,11 @@
 
 ## 6. 협력자
 *  @leegangryong1  gangryong.hci.du@gmail.cpm
+
+## Dependency
+
+- streamlit
+- streamlit-chat
+- pandas
+- sentence-transformers
+- scikit-learn

@@ -74,25 +74,25 @@ if submitted and user_input:
 
     st.session_state.past.append(user_input)       
     st.session_state.generated.append(answer['챗봇'])
-"""
-if submitted and user_input:
-    checked= 0 
-    st.session_state['checked'] = checked 
 
-    if not st.session_state.get('checked'):
+
+# if submitted and user_input:
+#    checked= 0 
+#    st.session_state['checked'] = checked 
+
+#    if not st.session_state.get('checked'):
         # 열이 난다 체크박스 확인
-        if st.checkbox('열이 난다.'):
-            checked = 1
-        # 열은 나지 않는다 체크박스 확인
-        if st.checkbox('열은 나지 않는다.'):
-            checked = 2
+#        if st.checkbox('열이 난다.'):
+#            checked = 1
+#        # 열은 나지 않는다 체크박스 확인
+#        if st.checkbox('열은 나지 않는다.'):
+#            checked = 2
         
-    if checked == 2:
-        st.write('내과를 방문해 주세요')
-    elif checked ==1:
-        st.write('이비인후과를 방문해 주세요')
+#    if checked == 2:
+#         st.write('내과를 방문해 주세요')
+#    elif checked ==1:
+#        st.write('이비인후과를 방문해 주세요')
 
-"""
 
 if image_input is not None:
     img = load_image(image_input)

@@ -21,7 +21,6 @@ wellness_df = get_dataset('C:\\Users\\21813903\\Desktop\\chatbot2\\mental-health
 symptom_df = get_dataset('C:\\Users\\21813903\\Desktop\\chatbot2\\mental-health-chatbot\\sysmptom_data.csv')
 
 st.header('심리상담 챗봇')
-st.markdown("[❤️빵형의 개발도상국](https://www.youtube.com/c/빵형의개발도상국)")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []

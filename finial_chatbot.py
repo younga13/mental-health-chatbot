@@ -40,7 +40,8 @@ def classify_image(image):
 
 model = cached_model()
 wellness_df = get_dataset('C:\\Users\\21813903\\Desktop\\chatbot2\\mental-health-chatbot\\wellness_dataset.csv')
-symptom_df = get_dataset('C:\\Users\\21813903\\Desktop\\chatbot2\\mental-health-chatbot\\sysmptom_data.csv')
+symptom_df = get_dataset('C:\\Users\\21813903\\chatbot9\\mental-health-chatbot\\text_data_file\\symptom_dataset.csv')
+
 
 st.header('👩🏻‍⚕건강관리 챗봇👨🏻‍⚕️')
 st.markdown("🏥[서울 xx병원](https://www.amc.seoul.kr/asan/healthinfo/symptom/symptomSubmain.do)")
@@ -70,8 +71,28 @@ if submitted and user_input:
     else:
         answer = symptom_answer
 
-    st.session_state.past.append(user_input)
+
+    st.session_state.past.append(user_input)       
     st.session_state.generated.append(answer['챗봇'])
+"""
+if submitted and user_input:
+    checked= 0 
+    st.session_state['checked'] = checked 
+
+    if not st.session_state.get('checked'):
+        # 열이 난다 체크박스 확인
+        if st.checkbox('열이 난다.'):
+            checked = 1
+        # 열은 나지 않는다 체크박스 확인
+        if st.checkbox('열은 나지 않는다.'):
+            checked = 2
+        
+    if checked == 2:
+        st.write('내과를 방문해 주세요')
+    elif checked ==1:
+        st.write('이비인후과를 방문해 주세요')
+
+"""
 
 if image_input is not None:
     img = load_image(image_input)
@@ -79,9 +100,19 @@ if image_input is not None:
     if classification == "Burns":
         st.session_state.past.append("화상 사진")
         st.session_state.generated.append("화상입니다! 흐르는 찬물에 20분이상 담가 유지하세요! 화상 부위에 바세린이나 화상 거즈(깨끗한 거즈)로 덮어주고 붕대로 감아주세요! ")
+        # 유튜브 동영상 URL
+        youtube_video_url = "https://www.youtube.com/watch?v=PiQAsso5GZk"
+        strat_time=10
+    # Streamlit에서 동영상을 표시
+        st.video(youtube_video_url, start_time=strat_time)
+       
     else:
         st.session_state.past.append("동상 사진")
         st.session_state.generated.append("동상입니다! 따듯한 곳으로 이동하고 동상부위를 따뜻한 물(39~42도)에 30분간 담그세요!")
+        youtube_video_url = "https://www.youtube.com/watch?v=9Z5LkO4a4H0"
+        strat_time=10
+        st.video(youtube_video_url, start_time=strat_time)
+
 
 for i in range(len(st.session_state['past'])):
     message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
